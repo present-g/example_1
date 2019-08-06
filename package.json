@@ -1,0 +1,32 @@
+{
+  "name": "site_4",
+  "version": "1.0.0",
+  "description": "site_4 html template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "present.g",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "latest",
+    "del": "latest",
+    "gulp": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-clean-css": "latest",
+    "gulp-concat": "latest",
+    "gulp-csscomb": "latest",
+    "gulp-imagemin": "latest",
+    "gulp-notify": "latest",
+    "gulp-rename": "latest",
+    "gulp-rsync": "latest",
+    "gulp-sass": "latest",
+    "gulp-uglify": "latest",
+    "gulp-util": "latest",
+    "imagemin-mozjpeg": "latest",
+    "imagemin-pngquant": "latest"
+  },
+  "dependencies": {
+    "npm-check-updates": "latest"
+  }
+}

@@ -1,0 +1,764 @@
+@import "preloader";
+@import "reset";
+@import "vars";
+@import "fonts";
+@import "animate";
+@import "libs";
+
+::placeholder {
+	color: #666;
+}
+
+::selection {
+	background-color: $accent;
+	color: #fff;
+}
+
+body {
+	font-size: 16px;
+	min-width: 320px;
+	position: relative;
+	line-height: 1.65;
+	font-family: $default-font;
+	overflow-x: hidden;
+	color: $dark;
+	input, textarea {
+		border: #666 1px solid;
+		outline: none;
+		&:focus:required:invalid {
+			border-color: red;
+		}
+		&:required:valid {
+			border-color: green;
+		}
+	}
+}
+
+.img-responsive {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	&.img-width {
+		width: 100%;
+	}
+}
+
+.ta {
+	&-c {
+		text-align: center;
+	}
+	&-l {
+		text-align: left;
+	}
+	&-r {
+		text-align: right;
+	}
+}
+
+b, strong {
+	font-weight: bold;
+}
+
+.page {
+	&__headline {
+		color: $accent;
+		font-size: 3.125rem;
+		font-weight: 400;
+		line-height: 1;
+		text-transform: uppercase;
+		letter-spacing: 0.208rem;
+	}
+	&__button {
+		font-size: 1.063rem;
+		text-transform: uppercase;
+		letter-spacing: 0.079rem;
+		background: transparent;
+		border: 1px solid $accent;
+		padding: 1.66rem 4.686rem;
+		border-radius: 3rem;
+		transition: all .3s;
+		transform: scale(1);
+		&:hover {
+			background: $accent;
+		}
+		&:active {
+			transform: scale(.9);
+		}
+		&--header {
+			color: $light;
+			padding: 1.659rem 2.92rem;
+			&:hover {
+				color: $dark;
+			}
+		}	
+	}
+	&-cell {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+}
+
+.clearfix {
+	overflow: auto;
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+.go-top {
+	position: fixed;
+	bottom: 1rem;
+	right: 20%;
+	width: 3.125rem;
+	height: 3.125rem;
+	background-color: $accent;
+	z-index: 3000;
+	background-image: url('../img/go_top.svg');
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: center center;
+	transition: opacity .3s;
+	opacity: .8;
+	&:hover {
+		opacity: 1;
+		cursor: pointer;
+	}
+}
+
+.wow {
+	visibility: hidden;
+}
+
+/* 
+========================================================================================================================================
+========================================================================================================================================
+========================================================================================================================================
+###																HEADER																 ###
+========================================================================================================================================
+========================================================================================================================================
+========================================================================================================================================
+*/
+
+
+.top-line {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	background: $dark;
+	padding: 1rem;
+	&__cell {
+		max-width: 1200px;
+		position: relative;
+		width: 100%;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		z-index: 1000;
+	}
+}
+
+.main-menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: $dark;
+	max-width: 420px;
+	width: 50%;
+	min-width: 240px;
+	height: 100vh;
+	z-index: 1500;
+	border-right: 1rem solid $light;
+	transition: transform .3s, visibility .3s;
+	left: -9999em;
+	visibility: hidden;
+	&:after {
+		content: "";
+		display: block;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 1rem;
+		height: 100%;
+		background: $accent;
+	}
+	&__button {
+		z-index: 2000;
+		position: relative;
+	}
+	&--active {
+		left: 0;
+		visibility: visible;
+		transform: translateX(0);
+
+		animation: slideInLeft .5s linear;
+	}
+	&__link {
+		display: block;
+		padding: 1rem;
+		padding-left: 3rem;
+		margin-top: .5rem;
+		transition: all .3s;
+		color: $accent;
+		text-transform: uppercase;
+		font-family: $default-font;
+		font-size: 1.5rem;
+		&:hover {
+			padding-left: 7rem;
+			background: rgba(255,255,255, .1);
+		}
+	}
+}
+
+.hamburger {
+	background: $accent;
+	width: 5.125rem;
+	height: 5.125rem;
+	padding: 1rem;
+	&-box {
+		width: 80%;
+		height: 50px;
+		position: relative;
+	}
+	&-inner {
+		max-width: inherit;
+		max-height: 3px;
+		&:after {
+			max-width: inherit;
+			max-height: inherit;
+		}
+		&:before {
+			max-width: inherit;
+			max-height: inherit;
+		}
+	}
+}
+
+
+
+/* 
+========================================================================================================================================
+========================================================================================================================================
+========================================================================================================================================
+###															FIRST SECTION 	 														 ###
+========================================================================================================================================
+========================================================================================================================================
+========================================================================================================================================
+*/
+
+
+
+.first-section {
+	background: $dark;
+	padding: 2.6875rem 0;
+	min-height: 850px;
+	height: 100vh;
+	max-height: 1080px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	flex-direction: column;
+	padding: 5rem 0;
+	&__headline {
+		color: #ffdb00;
+		font-size: 11rem;
+		line-height: 1.02;
+		text-transform: uppercase;
+		letter-spacing: 0.825rem;
+	}
+	&__description {
+		color: $light;
+		font-size: 0.938rem;
+		line-height: 1.67;
+		letter-spacing: 0.071rem;
+		max-width: 48.1875rem;
+		margin-top: 0.6875rem;
+		margin-bottom: 2.6875rem;
+	}	
+}
+
+
+
+/* 
+========================================================================================================================================
+========================================================================================================================================
+========================================================================================================================================
+###															SECTION SKILL 	 														 ###
+========================================================================================================================================
+========================================================================================================================================
+========================================================================================================================================
+*/
+
+
+
+.section-skill {
+	&__top {
+		text-align: center;
+		padding: 5.938rem 0;
+		font-size: 1.25rem;
+		line-height: 1.25;
+		letter-spacing: 0.094rem;
+		background: $accent;
+		width: 100%;
+		p {
+			max-width: 60.188rem;
+			display: inline-block;
+		}
+	}
+	&__item {
+		margin: 7.4375rem 0 5.4375rem 0;
+		max-width: 364px;
+	}
+	&__icon {
+		width: 4.813rem;
+		height: 4.813rem;
+		background-color: $accent;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: auto;
+	}
+	&__headline {
+		color: $accent;
+		font-family: Abel;
+		font-size: 3.125rem;
+		line-height: 1;
+		text-transform: uppercase;
+		letter-spacing: 0.234rem;
+		margin-top: 2.875rem;
+		margin-bottom: 3.375rem;
+	}
+	&__content {
+		font-size: 0.938rem;
+		letter-spacing: 0.071rem;
+	}
+}
+
+.page__button {
+	&--skill {
+		margin-bottom: 7.4375rem;
+	}
+}
+
+
+
+/* 
+========================================================================================================================================
+========================================================================================================================================
+========================================================================================================================================
+###															SECTION COUNT 	 														 ###
+========================================================================================================================================
+========================================================================================================================================
+========================================================================================================================================
+*/
+
+
+
+.section-count {
+	padding: 5.75rem 0;
+	background: $dark;
+	&__item {
+		
+		text-align: center;
+		
+	}
+	&__icon {
+		display: inline-block;
+		width: 48px;
+		height: 48px;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: auto;
+	}
+	&__number {
+		color: $light;
+		font-size: 3.75rem;
+		margin: 3.4375rem 0;
+	}
+	&__headline {
+		font-size: 1.25rem;
+		line-height: 1;
+		text-transform: uppercase;
+		letter-spacing: 0.094rem;
+		color: $accent;
+	}
+}
+
+
+
+
+
+/* 
+========================================================================================================================================
+========================================================================================================================================
+========================================================================================================================================
+###															SECTION WORKS 	 														 ###
+========================================================================================================================================
+========================================================================================================================================
+========================================================================================================================================
+*/
+
+
+.section-works {
+	padding-top: 7.5625rem;
+	padding-bottom: 7.3125rem;
+	&__description {
+		font-size: 1.25rem;
+		line-height: 1.25;
+		letter-spacing: 0.094rem;
+		max-width: 945px;
+		margin-bottom: 7.3125rem;
+		margin-top: 3.125rem;
+	}
+	&__wrap {
+		background: $dark;
+
+	}
+	&__block {
+		max-width: 1920px;
+		margin: 0 auto;
+		overflow: hidden;
+		text-align: center;
+	}
+	&__item {
+		float: left;
+		position: relative;
+		display: inline-block;
+		overflow: hidden;
+		&:hover .hover-overlay {
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			opacity: 1;
+		}
+		&:hover .hover-overlay__link, &:hover .hover-overlay__headline {
+			transform: translateY(0%);
+		}
+	}
+	&__img {
+		width: 100%;
+	}
+	&__button {
+		margin-top: 7.3125rem;
+	}
+}
+
+.nav {
+	margin-bottom: 8.375rem;
+	&__list {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	&__item {
+		margin: .8125rem;
+		border: 3px solid $accent;
+		transition: background .3s;
+		&:hover, &--active {
+			background: $accent;
+		}
+	}
+	&__link {
+		display: inline-block;
+		font-size: 1.25rem;
+		font-weight: 400;
+		line-height: 1;
+		color: $dark;
+		padding: 1rem 2.375rem;
+	}
+}
+
+.hover-overlay {
+	position: absolute;
+	background: $accent;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	transition: opacity .5s;
+	opacity: 0;
+	left: -999999em;
+	max-width: 100%;
+	max-height: 100%;
+	&__wrap {
+		max-width: 520px;
+	}
+	&__headline {
+		font-size: 1.875rem;
+		line-height: 3.2;
+		letter-spacing: 0.141rem;
+		transition: transform .5s;
+		transform: translateY(100%);
+	}
+	&__description {
+		font-size: 1.25rem;
+		line-height: 1.25;
+		letter-spacing: 0.094rem;
+	}
+	&__link {
+		font-size: 1.25rem;
+		display: inline-block;
+		letter-spacing: 0.094rem;
+		padding: 0.345rem 2.662rem;
+		color: $dark;
+		border: 1px solid $light;
+		margin-top: 2.3125rem;
+		transition: transform .5s, background .3s;
+		transform: translateY(-100%);
+		&:hover {
+			background: $light;
+		}
+	}
+}
+
+.main-mfp {
+	transition: opacity 15s;
+	opacity: 0;
+	position: absolute;
+	left: -999999em;
+	max-width: 600px;
+	display: inline-block;
+	max-width: 600px;
+	color: $light;
+	&__headline {
+		font-size: 1.875rem;
+		line-height: 3.2;
+		letter-spacing: 0.141rem;
+	}
+	&__description {
+		font-size: 1.25rem;
+		line-height: 1.25;
+		letter-spacing: 0.094rem;
+	}
+}
+
+.mfp-ready, .mfp-container {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100vh;
+}
+
+.mfp-content {
+	text-align: center;
+	.main-mfp {
+		opacity: 1;
+		position: static;
+		max-height: 80vh;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 
+========================================================================================================================================
+========================================================================================================================================
+========================================================================================================================================
+###															SECTION CLIENT	 														 ###
+========================================================================================================================================
+========================================================================================================================================
+========================================================================================================================================
+*/
+
+
+
+.section-client {
+	background: $dark;
+	padding: 7.5rem 0;
+	&__description {
+		color: $light;
+		font-size: 1.25rem;
+		line-height: 1.25;
+		letter-spacing: 0.094rem;
+		margin-top: 2.9375rem;
+		margin-bottom: 7.75rem;
+	}
+	&__item {
+		display: inline-block;
+	}
+	&__img {
+		max-width: 100%;
+		height: auto;
+		display: inline-block !important;
+		width: unset !important;
+	}
+	&__link {
+		display: inline-block;
+	}
+	.owl {
+		&-stage {
+			// display: flex;
+			// justify-content: space-around;
+			// align-items: center;
+		}
+		&-item {
+			text-align: center;
+			padding: .3rem;
+			transition: transform .3s;
+			&:hover {
+				transform: scale(1.1);
+			}
+		}
+		&-dots {
+			text-align: center;
+			padding-top: 2.8125rem;
+			.active {
+				background-color: $accent !important;
+			}
+		}
+		&-dot {
+			width: 0.625rem;
+			height: 0.625rem;
+			background-color: $light !important;
+			border: none !important;
+			display: inline-block !important;
+			margin: 5px;
+		}
+	}
+}
+
+
+
+
+
+
+/* 
+========================================================================================================================================
+========================================================================================================================================
+========================================================================================================================================
+###															SECTION CONTACT	 														 ###
+========================================================================================================================================
+========================================================================================================================================
+========================================================================================================================================
+*/
+
+
+.section-contact {
+	padding-top: 7.375rem;
+	&__description {
+		font-size: 1.25rem;
+		line-height: 1.25;
+		letter-spacing: 0.094rem;
+		max-width: 945px;
+		margin-top: 2.9375rem;
+		margin-bottom: 7.4375rem;
+	}
+	&__footer {
+		background-color: $accent;
+		padding: 7.5625rem 0;
+	}
+	&__item {
+		text-align: center;
+		position: relative;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		margin: 1rem;
+	}
+	&__icon {
+		width: 5rem;
+		height: 5rem;
+		display: inline-block;
+		background-color: $dark;
+		background-size: auto;
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
+	&__link {
+		max-width: 185px;
+		display: inline-block;
+		color: $dark;
+		font-size: 1.25rem;
+		letter-spacing: 0.094rem;
+	}
+}
+
+.form {
+	&__item {
+		width: 100%;
+		display: block;
+		padding: 1rem 1.5rem;
+		margin-top: 1.125rem;
+		border: 1px solid #17191e;
+	}
+	&__text {
+		min-height: 182px;
+	}
+	&__button {
+		margin-top: 2.5625rem;
+		margin-bottom: 5.9375rem;
+	}
+}
+
+
+
+
+
+
+
+/* 
+========================================================================================================================================
+========================================================================================================================================
+========================================================================================================================================
+###															PAGE FOOTER 	 														 ###
+========================================================================================================================================
+========================================================================================================================================
+========================================================================================================================================
+*/
+
+
+
+.page-footer {
+	padding: 7.5625rem 0;
+	background: $dark;
+	&__copy {
+		color: $light;
+		font-size: 1.563rem;
+		letter-spacing: 0.118rem;
+		display: inline-block;
+		&--accent {
+			color: $accent;
+			letter-spacing: 0.118rem;
+		}
+	}
+}
+
+
+.social {
+	max-width: 230px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 3.3125rem;
+	&__link {
+		width: 1.125rem;
+		height: 1.125rem;
+		display: inline-block;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: auto;
+		&:hover {
+			animation: rubberBand .5s;
+		}
+	}
+}
+
+@import "media"; // Always at the end
